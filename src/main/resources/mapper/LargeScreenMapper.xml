@@ -2,4 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.LargeScreenMapper">
 
+    <select id="selectById" resultType="com.example.entity.LargeScreen">
+        select id,screen_name,creator,catalog_id,current_status,access_address from large_screen
+        where catalog_id = #{catalog_id}
+    </select>
+
+    <select id="selectByPid" resultType="com.example.entity.LargeScreen">
+        select id,screen_name,creator,catalog_id,current_status,access_address, create_time from large_screen
+        where catalog_id = #{parentId}
+    </select>
+
+    <delete id="removeByScreenPid">
+        delete
+        from large_screen
+        where catalog_id = #{parentId}
+    </delete>
+
+
+    <delete id="removeScreen">
+        delete
+        from large_screen
+        where catalog_id = #{type}
+    </delete>
 </mapper>
