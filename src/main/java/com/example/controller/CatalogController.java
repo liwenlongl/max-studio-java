@@ -87,18 +87,6 @@ public class CatalogController {
 
     @DeleteMapping("/delete")
     public Result<String> deleteByCatalogueId(@RequestParam Long type) {
-//        Catalog catalog = catalogService.getById(type);
-//
-//        List<Catalog> children = catalogService.getByPid(type);
-//        log.info("children:{}",children.toString());
-//        if ( catalog != null && children != null ) {
-//            List<LargeScreen> largeScreens = largeScreenService.selectByPid(type);
-//            if (largeScreens.size() > 0) {
-//                largeScreenService.removeByScreenPid(type);
-//            }
-//            catalogService.removeByPid(type);
-//            catalogService.removeById(type);
-//        }
         catalogService.removeById(type);
         largeScreenService.removeScreen(type);
         return Result.success();
