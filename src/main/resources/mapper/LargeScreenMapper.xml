@@ -3,7 +3,7 @@
 <mapper namespace="com.example.mapper.LargeScreenMapper">
 
     <select id="selectById" resultType="com.example.entity.LargeScreen">
-        select id,screen_name,creator,catalog_id,current_status,access_address from large_screen
+        select id,screen_name,creator,catalog_id,current_status,access_address, create_time from large_screen
         where catalog_id = #{catalog_id}
     </select>
 
